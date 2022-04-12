@@ -1,0 +1,21 @@
+{
+  "name": "formulario-practicas-servidor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "mysql": "^2.18.1",
+    "sweetalert2": "^11.4.8"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
