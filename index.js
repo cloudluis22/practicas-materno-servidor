@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.post('/api/v1/registrar-paciente', (request, response) => {
-  // Movies
+  
   const IdPaciente = request.body.id;
   const NombrePaciente = request.body.NombrePaciente;
   const NombrePreferido = request.body.NombrePaciente;
@@ -30,9 +30,10 @@ app.post('/api/v1/registrar-paciente', (request, response) => {
   const Telefono = request.body.Telefono;
   const Celular = request.body.Celular;
   const OtroContacto = request.body.OtroContacto;
+  const Mydate = request.body.Mydate;
 
   const peticionSql =
-    'INSERT INTO paciente (IdPaciente, NombrePaciente, NombrePreferido, Edad, Genero, GustosPersonales, FechaDeNacimiento, LugarDeNacimiento, PadreMadreTutor, TutorEncargado, Domicilio, Telefono, Celular, OtroContacto) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+    'INSERT INTO paciente (IdPaciente, NombrePaciente, NombrePreferido, Edad, Genero, GustosPersonales, FechaDeNacimiento, LugarDeNacimiento, PadreMadreTutor, TutorEncargado, Domicilio, Telefono, Celular, OtroContacto, Mydate) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
   db.query(
     peticionSql,
     [
@@ -50,6 +51,7 @@ app.post('/api/v1/registrar-paciente', (request, response) => {
       Telefono,
       Celular,
       OtroContacto,
+      Mydate,
     ],
     (err, result) => {
       if (err) {
@@ -117,7 +119,7 @@ app.delete('/api/v1/eliminar-paciente/:id', (req, res) => {
 });
 
 app.put('/api/v1/actualizar-paciente', (request, response) => {
-  // Movies
+  //a
   const IdPaciente = request.body.id;
   const NombrePaciente = request.body.NombrePaciente;
   const NombrePreferido = request.body.NombrePaciente;
