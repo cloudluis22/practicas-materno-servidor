@@ -119,7 +119,7 @@ app.delete('/api/v1/eliminar-paciente/:id', (req, res) => {
 });
 
 app.put('/api/v1/actualizar-paciente', (request, response) => {
-  // Movies
+  //a
   const IdPaciente = request.body.id;
   const NombrePaciente = request.body.NombrePaciente;
   const NombrePreferido = request.body.NombrePaciente;
