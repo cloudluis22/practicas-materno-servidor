@@ -2,7 +2,7 @@ const express = require('express');
 let router = express.Router();
 const mysql = require('mysql');
 
-// Todas las rutas relacionadas con la alimentación del paciente.
+// Todas las rutas relacionadas con la alimentación del bebe, en el formulario amamantacion.
 
 const db = mysql.createPool({
   host: 'localhost',
@@ -12,7 +12,7 @@ const db = mysql.createPool({
 });
 
 router
-  .route('/alimentacion-bebe/:id')
+  .route('/alimentacionbebe/:id')
   .get((req, res) => {
     const IdPaciente = req.params.id;
 
@@ -23,7 +23,7 @@ router
         res.status(400).send({ message: err });
         console.error(err);
       } else {
-        res.status(200).send({ alimentacion: result });
+        res.status(200).send({ alimentacionbebe: result });
       }
     });
   })
@@ -31,50 +31,35 @@ router
     const IdPaciente = req.params.id;
     const TomaPechoEdad = req.body.TomaPechoEdad;
     const FrecuenciaAlimentacionPecho = req.body.FrecuenciaAlimentacionPecho;
-    const TipoDeAlimentacionPecho = req.body.TipoDeAlimentacion;
+    const TipoDeAlimentacion = req.body.TipoDeAlimentacion;
     const UsabaBiberon = req.body.UsabaBiberon;
     const ContenidoBiberon = req.body.ContenidoBiberon;
     const EdadYaNoTomaBiberon = req.body.EdadYaNoTomaBiberon;
-    const UsabaChupon = req.body.UsabaChupon;
-    //------
-    const Vegetales = req.body.Vegetales;
-    const Dulces = req.body.Dulces;
-    const Gomitas = req.body.Gomitas;
-    const Huevo = req.body.Huevo;
-    const Galletas = req.body.Galletas;
-    const Chocolate = req.body.Chocolate;
-    const Pescado = req.body.Pescado;
-    const Mermelada = req.body.Mermelada;
-    const Chicle = req.body.Chicle;
-    const Agua = req.body.Agua;
-    const Yakult = req.body.Yakult;
-    const Te = req.body.Te;
+    const LblUsabaChupon = req.body.LblUsabaChupon;
+    const ContenidoChupon = req.body.ContenidoChupon;
+    const EdadYaNoUsaChupon = req.body.EdadYaNoUsaChupon;
+    const LblAlimentacionNocturna = req.body.LblAlimentacionNocturna;
+    const LimpiaSuBoquita = req.body.LimpiaSuBoquita;
+    const LblBebeConsumeSolidos = req.body.LblBebeConsumeSolidos;
 
     const peticionSql =
-      'INSERT INTO alimentacion (IdPaciente, ComidasDiarias, Carne, Leche, Pan, Frutas, Yoghurt, Jugos, Vegetales, Dulces, Gomitas, Huevo, Galletas, Chocolate, Pescado, Mermelada, Chicle, Agua, Yakult, Te) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+      'INSERT INTO alimentacionbebe (IdPaciente, TomaPechoEdad, FrecuenciaAlimentacionPecho, TipoDeAlimentacion,  UsabaBiberon, ContenidoBiberon, EdadYaNoTomaBiberon, UsabaChupon, ContenidoChupon, EdadYaNoUsaChupon,  AlimentacionNocturna, LimpiaSuBoquita, BebeConsumeSolidos,) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
     db.query(
       peticionSql,
       [
         IdPaciente,
-        ComidasDiarias,
-        Carne,
-        Leche,
-        Pan,
-        Frutas,
-        Yoghurt,
-        Jugos,
-        Vegetales,
-        Dulces,
-        Gomitas,
-        Huevo,
-        Galletas,
-        Chocolate,
-        Pescado,
-        Mermelada,
-        Chicle,
-        Agua,
-        Yakult,
-        Te,
+        TomaPechoEdad,
+        FrecuenciaAlimentacionPecho,
+        TipoDeAlimentacion,
+        UsabaBiberon,
+        ContenidoBiberon,
+        EdadYaNoTomaBiberon,
+        LblUsabaChupon,
+        ContenidoChupon,
+        EdadYaNoUsaChupon,
+        LblAlimentacionNocturna,
+        LimpiaSuBoquita,
+        LblBebeConsumeSolidos,
       ],
       (err, result) => {
         if (err) {
@@ -88,50 +73,36 @@ router
   })
   .put((req, res) => {
     const IdPaciente = req.params.id;
-    const ComidasDiarias = req.body.ComidasDiarias;
-    const Carne = req.body.Carne;
-    const Leche = req.body.Leche;
-    const Pan = req.body.Pan;
-    const Frutas = req.body.Frutas;
-    const Yoghurt = req.body.Yoghurt;
-    const Jugos = req.body.Jugos;
-    const Vegetales = req.body.Vegetales;
-    const Dulces = req.body.Dulces;
-    const Gomitas = req.body.Gomitas;
-    const Huevo = req.body.Huevo;
-    const Galletas = req.body.Galletas;
-    const Chocolate = req.body.Chocolate;
-    const Pescado = req.body.Pescado;
-    const Mermelada = req.body.Mermelada;
-    const Chicle = req.body.Chicle;
-    const Agua = req.body.Agua;
-    const Yakult = req.body.Yakult;
-    const Te = req.body.Te;
+    const TomaPechoEdad = req.body.TomaPechoEdad;
+    const FrecuenciaAlimentacionPecho = req.body.FrecuenciaAlimentacionPecho;
+    const TipoDeAlimentacion = req.body.TipoDeAlimentacion;
+    const UsabaBiberon = req.body.UsabaBiberon;
+    const ContenidoBiberon = req.body.ContenidoBiberon;
+    const EdadYaNoTomaBiberon = req.body.EdadYaNoTomaBiberon;
+    const LblUsabaChupon = req.body.LblUsabaChupon;
+    const ContenidoChupon = req.body.ContenidoChupon;
+    const EdadYaNoUsaChupon = req.body.EdadYaNoUsaChupon;
+    const LblAlimentacionNocturna = req.body.LblAlimentacionNocturna;
+    const LimpiaSuBoquita = req.body.LimpiaSuBoquita;
+    const LblBebeConsumeSolidos = req.body.LblBebeConsumeSolidos;
 
     const peticionSql =
-      'UPDATE alimentacion SET ComidasDiarias = ?, Carne = ?, Leche = ?, Pan = ?, Frutas = ?, Yoghurt = ?, Jugos = ?, Vegetales = ?, Dulces = ?, Gomitas = ?, Huevo = ?, Galletas = ?, Chocolate = ?, Pescado = ?, Mermelada = ?, Chicle = ?, Agua = ?, Yakult = ?, Te = ? WHERE IdPaciente = ?';
+      'UPDATE alimentacionbebe SET IdPaciente = ?, TomaPechoEdad = ?, FrecuenciaAlimentacionPecho = ? , TipoDeAlimentacion = ?, UsabaBiberon = ?, ContenidoBiberon = ?, EdadYaNoTomaBiberon = ?, UsabaChupon = ?, ContenidoChupon = ?, EdadYaNoUsaChupon = ?, AlimentacionNocturna = ?, LimpiaSuBoquita = ?, BebeConsumeSolidos = ? WHERE IdPaciente = ?';
     db.query(
       peticionSql,
       [
-        ComidasDiarias,
-        Carne,
-        Leche,
-        Pan,
-        Frutas,
-        Yoghurt,
-        Jugos,
-        Vegetales,
-        Dulces,
-        Gomitas,
-        Huevo,
-        Galletas,
-        Chocolate,
-        Pescado,
-        Mermelada,
-        Chicle,
-        Agua,
-        Yakult,
-        Te,
+        TomaPechoEdad,
+        FrecuenciaAlimentacionPecho,
+        TipoDeAlimentacion,
+        UsabaBiberon,
+        ContenidoBiberon,
+        EdadYaNoTomaBiberon,
+        LblUsabaChupon,
+        ContenidoChupon,
+        EdadYaNoUsaChupon,
+        LblAlimentacionNocturna,
+        LimpiaSuBoquita,
+        LblBebeConsumeSolidos,
         IdPaciente,
       ],
       (err, result) => {
