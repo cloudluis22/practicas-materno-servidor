@@ -5,7 +5,7 @@ const cors = require('cors');
 // Rutas
 const paciente = require('./routes/paciente');
 const alimentacion = require('./routes/alimentacion');
-const alimentacionbebe = require('./routes/alimentacionbebe');
+const alimentacionbebe = require('./routes/alimentacionBebe');
 const antecedentesfamiliares = require('./routes/antecedentesfamiliares');
 const antecedentespersonales = require('./routes/antecedentespersonales');
 

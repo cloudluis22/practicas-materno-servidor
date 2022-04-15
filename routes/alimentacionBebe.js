@@ -12,7 +12,7 @@ const db = mysql.createPool({
 });
 
 router
-  .route('/alimentacionbebe/:id')
+  .route('/alimentacion-bebe/:id')
   .get((req, res) => {
     const IdPaciente = req.params.id;
 

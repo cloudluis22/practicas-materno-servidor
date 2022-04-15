@@ -12,11 +12,12 @@ const db = mysql.createPool({
 });
 
 router
-  .route('/antecedentespersonales/:id')
+  .route('/antecedentes-personales/:id')
   .get((req, res) => {
     const IdPaciente = req.params.id;
 
-    const peticionSql = 'SELECT * FROM antecedentespersonales WHERE IdPaciente = ?';
+    const peticionSql =
+      'SELECT * FROM antecedentespersonales WHERE IdPaciente = ?';
 
     db.query(peticionSql, IdPaciente, (err, result) => {
       if (err) {
@@ -31,8 +32,11 @@ router
     const IdPaciente = req.params.id;
     const BuenaSalud = req.body.BuenaSalud;
     const Hospitalizado = req.body.Hospitalizado;
+    const RealizaDeporte = req.body.RealizaDeporte;
     const LblRealizaDeporte = req.body.LblRealizaDeporte;
+    const AlergiasMedAlim = req.body.AlergiasMedAlim;
     const LblAlergiasMedAlim = req.body.LblAlergiasMedAlim;
+    const TrastornoMentalEmocional = req.body.TrastornoMentalEmocional;
     const LblTrastornoMentalEmocional = req.body.LblTrastornoMentalEmocional;
     const DificultadesEscolares = req.body.DificultadesEscolares;
     const RespiraPorBoca = req.body.RespiraPorBoca;
@@ -62,25 +66,34 @@ router
     const TrastornoDeLenguaje = req.body.TrastornoDeLenguaje;
     const Otros = req.body.Otros;
     const TratamientosActivos = req.body.TratamientosActivos;
+    const TomaMedicamentos = req.body.TomaMedicamentos;
     const LblTomaMedicamentos = req.body.LblTomaMedicamentos;
+    const MadreMedicamentoEmbarazo = req.body.MadreMedicamentoEmbarazo;
     const LblMadreMedicamentoEmbarazo = req.body.LblMadreMedicamentoEmbarazo;
     const AccidentesEmbarazo = req.body.AccidentesEmbarazo;
     const TipoParto = req.body.TipoParto;
+    const DificultadNacimiento = req.body.DificultadNacimiento;
     const LblDificultadNacimiento = req.body.LblDificultadNacimiento;
-    const LblAnomaliaCongenitaNacimiento = req.body.LblAnomaliaCongenitaNacimiento;
+    const AnomaliaCongenitaNacimiento = req.body.AnomaliaCongenitaNacimiento;
+    const LblAnomaliaCongenitaNacimiento =
+      req.body.LblAnomaliaCongenitaNacimiento;
     const HaSidoAnestesiado = req.body.HaSidoAnestesiado;
+    const ReaccionAnestesia = req.body.ReaccionAnestesia;
     const LblReaccionAnestesia = req.body.LblReaccionAnestesia;
 
     const peticionSql =
-      'INSERT INTO antecedentespersonales (IdPaciente, BuenaSalud, Hospitalizado, RealizaDeporte, AlergiasMedAlim, TrastornoMentalEmocional, DificultadesEscolares, RespiraPorBoca, ApneaRoncar, ChupaLabioDedos, Asma, Sarampion, FiebreReumatica, PaladarHendido, TosFerina, Poliomelitis, Epilepsia, Escarlatina, Tuberculosis, EnfermedadCardiaca, Varicela, Paperas, Hepatitis, Difteria, Tifoidea, EnfermedadRenal, Hemofilia, TrastornoHepatico, Diabetes, Reflujo, TrastornoDeLenguaje, Otros, TratamientosActivos, TomaMedicamentos, MadreMedicamentoEmbarazo, AccidentesEmbarazo, TipoParto, DificultadNacimiento, AnomaliaCongenitaNacimiento, HaSidoAnesteciado, ReaccionAnestecia) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+      'INSERT INTO antecedentespersonales (IdPaciente, BuenaSalud, Hospitalizado, RealizaDeporte, LblRealizaDeporte, AlergiasMedAlim, LblAlergiasMedAlim, TrastornoMentalEmocional, LblTrastornoMentalEmocional, DificultadesEscolares, RespiraPorBoca, ApneaRoncar, ChupaLabioDedos, LblChupaLabioDedos, Asma, Sarampion, FiebreReumatica, PaladarHendido, TosFerina, Poliomelitis, Epilepsia, Escarlatina, Tuberculosis, EnfermedadCardiaca, Varicela, Paperas, Hepatitis, Difteria, Tifoidea, EnfermedadRenal, Hemofilia, TrastornoHepatico, Diabetes, Reflujo, TrastornoDeLenguaje, Otros, TratamientosActivos, TomaMedicamentos, LblTomaMedicamentos, MadreMedicamentoEmbarazo, LblMadreMedicamentoEmbarazo, AccidentesEmbarazo, TipoParto, DificultadNacimiento, LblDificultadNacimiento, AnomaliaCongenitaNacimiento, LblAnomaliaCongenitaNacimiento, HaSidoAnestesiado, ReaccionAnestesia, LblReaccionAnestesia) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
     db.query(
       peticionSql,
       [
         IdPaciente,
         BuenaSalud,
         Hospitalizado,
+        RealizaDeporte,
         LblRealizaDeporte,
+        AlergiasMedAlim,
         LblAlergiasMedAlim,
+        TrastornoMentalEmocional,
         LblTrastornoMentalEmocional,
         DificultadesEscolares,
         RespiraPorBoca,
@@ -110,13 +123,18 @@ router
         TrastornoDeLenguaje,
         Otros,
         TratamientosActivos,
+        TomaMedicamentos,
         LblTomaMedicamentos,
+        MadreMedicamentoEmbarazo,
         LblMadreMedicamentoEmbarazo,
         AccidentesEmbarazo,
         TipoParto,
+        DificultadNacimiento,
         LblDificultadNacimiento,
+        AnomaliaCongenitaNacimiento,
         LblAnomaliaCongenitaNacimiento,
         HaSidoAnestesiado,
+        ReaccionAnestesia,
         LblReaccionAnestesia,
       ],
       (err, result) => {
@@ -133,8 +151,11 @@ router
     const IdPaciente = req.params.id;
     const BuenaSalud = req.body.BuenaSalud;
     const Hospitalizado = req.body.Hospitalizado;
+    const RealizaDeporte = req.body.RealizaDeporte;
     const LblRealizaDeporte = req.body.LblRealizaDeporte;
+    const AlergiasMedAlim = req.body.AlergiasMedAlim;
     const LblAlergiasMedAlim = req.body.LblAlergiasMedAlim;
+    const TrastornoMentalEmocional = req.body.LblTrastornoMentalEmocional;
     const LblTrastornoMentalEmocional = req.body.LblTrastornoMentalEmocional;
     const DificultadesEscolares = req.body.DificultadesEscolares;
     const RespiraPorBoca = req.body.RespiraPorBoca;
@@ -164,24 +185,33 @@ router
     const TrastornoDeLenguaje = req.body.TrastornoDeLenguaje;
     const Otros = req.body.Otros;
     const TratamientosActivos = req.body.TratamientosActivos;
+    const TomaMedicamentos = req.body.TomaMedicamentos;
     const LblTomaMedicamentos = req.body.LblTomaMedicamentos;
+    const MadreMedicamentoEmbarazo = req.body.MadreMedicamentoEmbarazo;
     const LblMadreMedicamentoEmbarazo = req.body.LblMadreMedicamentoEmbarazo;
     const AccidentesEmbarazo = req.body.AccidentesEmbarazo;
     const TipoParto = req.body.TipoParto;
+    const DificultadNacimiento = req.body.DificultadNacimiento;
     const LblDificultadNacimiento = req.body.LblDificultadNacimiento;
-    const LblAnomaliaCongenitaNacimiento = req.body.LblAnomaliaCongenitaNacimiento;
+    const AnomaliaCongenitaNacimiento = req.body.AnomaliaCongenitaNacimiento;
+    const LblAnomaliaCongenitaNacimiento =
+      req.body.LblAnomaliaCongenitaNacimiento;
     const HaSidoAnestesiado = req.body.HaSidoAnestesiado;
+    const ReaccionAnestesia = req.body.ReaccionAnestesia;
     const LblReaccionAnestesia = req.body.LblReaccionAnestesia;
 
     const peticionSql =
-      'UPDATE antecedentespersonales SET IdPaciente = ?, BuenaSalud = ?, Hospitalizado = ?, RealizaDeporte = ?, AlergiasMedAlim = ?, TrastornoMentalEmocional = ?, DificultadesEscolares = ?, RespiraPorBoca = ?, ApneaRoncar = ?, ChupaLabioDedos = ?, Asma = ?, Sarampion = ?, FiebreReumatica = ?, PaladarHendido = ?, TosFerina = ?, Poliomelitis = ?, Epilepsia = ?, Escarlatina = ?, Tuberculosis = ?, EnfermedadCardiaca = ?, Varicela = ?, Paperas = ?, Hepatitis = ?, Difteria = ?, Tifoidea = ?, EnfermedadRenal = ?, Hemofilia = ?, TrastornoHepatico = ?, Diabetes = ?, Reflujo = ?, TrastornoDeLenguaje = ?, Otros = ?, TratamientosActivos = ?, TomaMedicamentos = ?, MadreMedicamentoEmbarazo = ?, AccidentesEmbarazo = ?, TipoParto = ?, DificultadNacimiento = ?, AnomaliaCongenitaNacimiento = ?, HaSidoAnesteciado = ?, ReaccionAnestecia = ? WHERE IdPaciente = ?';
+      'UPDATE antecedentespersonales SET BuenaSalud = ?, Hospitalizado = ?, RealizaDeporte = ?, LblRealizaDeporte = ?, AlergiasMedAlim = ?, LblAlergiasMedAlim = ?, TrastornoMentalEmocional = ?, LblTrastornoMentalEmocional = ?, DificultadesEscolares = ?, RespiraPorBoca = ?, ApneaRoncar = ?, ChupaLabioDedos = ?, LblChupaLabioDedos = ?, Asma = ?, Sarampion = ?, FiebreReumatica = ?, PaladarHendido = ?, TosFerina = ?, Poliomelitis = ?, Epilepsia = ?, Escarlatina = ?, Tuberculosis = ?, EnfermedadCardiaca = ?, Varicela = ?, Paperas = ?, Hepatitis = ?, Difteria = ?, Tifoidea = ?, EnfermedadRenal = ?, Hemofilia = ?, TrastornoHepatico = ?, Diabetes = ?, Reflujo = ?, TrastornoDeLenguaje = ?, Otros = ?, TratamientosActivos = ?, TomaMedicamentos = ?, LblTomaMedicamentos = ?, MadreMedicamentoEmbarazo = ?, LblMadreMedicamentoEmbarazo = ?, AccidentesEmbarazo = ?, TipoParto = ?, DificultadNacimiento = ?, LblDificultadNacimiento = ?, AnomaliaCongenitaNacimiento = ?, LblAnomaliaCongenitaNacimiento = ?, HaSidoAnestesiado = ?, ReaccionAnestesia = ?, LblReaccionAnestesia = ? WHERE IdPaciente = ?';
     db.query(
       peticionSql,
       [
         BuenaSalud,
         Hospitalizado,
+        RealizaDeporte,
         LblRealizaDeporte,
+        AlergiasMedAlim,
         LblAlergiasMedAlim,
+        TrastornoMentalEmocional,
         LblTrastornoMentalEmocional,
         DificultadesEscolares,
         RespiraPorBoca,
@@ -211,13 +241,18 @@ router
         TrastornoDeLenguaje,
         Otros,
         TratamientosActivos,
+        TomaMedicamentos,
         LblTomaMedicamentos,
+        MadreMedicamentoEmbarazo,
         LblMadreMedicamentoEmbarazo,
         AccidentesEmbarazo,
         TipoParto,
+        DificultadNacimiento,
         LblDificultadNacimiento,
+        AnomaliaCongenitaNacimiento,
         LblAnomaliaCongenitaNacimiento,
         HaSidoAnestesiado,
+        ReaccionAnestesia,
         LblReaccionAnestesia,
         IdPaciente,
       ],

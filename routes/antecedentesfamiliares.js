@@ -12,11 +12,12 @@ const db = mysql.createPool({
 });
 
 router
-  .route('/antecedentesfamiliares/:id')
+  .route('/antecedentes-familiares/:id')
   .get((req, res) => {
     const IdPaciente = req.params.id;
 
-    const peticionSql = 'SELECT * FROM antecedentesfamiliares WHERE IdPaciente = ?';
+    const peticionSql =
+      'SELECT * FROM antecedentesfamiliares WHERE IdPaciente = ?';
 
     db.query(peticionSql, IdPaciente, (err, result) => {
       if (err) {
