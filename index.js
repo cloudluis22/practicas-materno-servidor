@@ -5,6 +5,9 @@ const cors = require('cors');
 // Rutas
 const paciente = require('./routes/paciente');
 const alimentacion = require('./routes/alimentacion');
+const alimentacionbebe = require('./routes/alimentacionbebe');
+const antecedentesfamiliares = require('./routes/antecedentesfamiliares');
+const antecedentespersonales = require('./routes/antecedentespersonales');
 
 // ----------- MIDDLEWARES ---------------------
 app.use(cors());
@@ -16,6 +19,9 @@ app.use(express.json());
 
 app.use('/api/v1', paciente);
 app.use('/api/v1', alimentacion);
+app.use('/api/v1', alimentacionbebe);
+app.use('/api/v1', antecedentesfamiliares);
+app.use('/api/v1', antecedentespersonales);
 
 // -----------------------------------
 
