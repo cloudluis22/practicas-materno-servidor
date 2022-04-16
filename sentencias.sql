@@ -43,6 +43,10 @@ INSERT INTO habitosperniciosos (IdPaciente, RespiradoBucal, SuccionDigital,
 SuccionChupete, SuccionLabial, MorderseLabio, MorderseLasUnas, DeglucionAtipica, 
 Otros) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
 
+--sentencia update de habitosperniciosos 
+
+UPDATE habitosperniciosos SET IdPaciente = ?, RespiradoBucal = ?, SuccionDigital = ?, SuccionChupete = ?, SuccionLabial = ?, MorderseLabio = ?, MorderseLasUnas = ?, DeglucionAtipica = ?, Otros = ? WHERE IdPaciente = ?
+
 --sentencias insert tabla Medio Bucal General
 INSERT INTO mediobucalgeneral (IdPaciente, Higiene, PlacaDentobacteriana, 
 Localizacion, CalculoDental) VALUES (?, ?, ?, ?, ?)
