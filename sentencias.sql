@@ -38,6 +38,9 @@ INSERT INTO habitoshigiene (IdPaciente, EncargadoCepillado, CepilladosDiarios,
 MarcaPastaDental, CepilladoDiarioDormir, EnjuagueBucal, HiloDental) 
 VALUES (?, ?, ?, ?, ?, ?, ?)
 
+-- UPDATE habitosHigiene 
+UPDATE habitoshigiene SET EncargadoCepillado = ?, CepilladosDiarios = ?, MarcaPastaDental = ?, CepilladoDiarioDormir = ?, EnjuagueBucal = ?, HiloDental = ? WHERE IdPaciente = ?;
+
 --sentencias Insert tabla habitosPerniciosos
 INSERT INTO habitosperniciosos (IdPaciente, RespiradoBucal, SuccionDigital, 
 SuccionChupete, SuccionLabial, MorderseLabio, MorderseLasUnas, DeglucionAtipica, 
