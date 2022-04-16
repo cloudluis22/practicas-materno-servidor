@@ -38,6 +38,9 @@ INSERT INTO habitoshigiene (IdPaciente, EncargadoCepillado, CepilladosDiarios,
 MarcaPastaDental, CepilladoDiarioDormir, EnjuagueBucal, HiloDental) 
 VALUES (?, ?, ?, ?, ?, ?, ?)
 
+-- UPDATE habitosHigiene 
+UPDATE habitoshigiene SET EncargadoCepillado = ?, CepilladosDiarios = ?, MarcaPastaDental = ?, CepilladoDiarioDormir = ?, EnjuagueBucal = ?, HiloDental = ? WHERE IdPaciente = ?;
+
 --sentencias Insert tabla habitosPerniciosos
 INSERT INTO habitosperniciosos (IdPaciente, RespiradoBucal, SuccionDigital, 
 SuccionChupete, SuccionLabial, MorderseLabio, MorderseLasUnas, DeglucionAtipica, 
@@ -47,11 +50,11 @@ Otros) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
 
 UPDATE habitosperniciosos SET IdPaciente = ?, RespiradoBucal = ?, SuccionDigital = ?, SuccionChupete = ?, SuccionLabial = ?, MorderseLabio = ?, MorderseLasUnas = ?, DeglucionAtipica = ?, Otros = ? WHERE IdPaciente = ?
 
---sentencias insert tabla Medio Bucal General
+--sentencias insert tabla Medio Bucal General .
 INSERT INTO mediobucalgeneral (IdPaciente, Higiene, PlacaDentobacteriana, 
 Localizacion, CalculoDental) VALUES (?, ?, ?, ?, ?)
 
--- sentencias insert tabla Oclusion y alineamiento
+-- sentencias insert tabla Oclusion y alineamiento .
 INSERT INTO oclusionyalinamiento (IdPaciente, LineaMedia, PlanoTerminal, 
 ClaseMolar, EspaciosPrimates, EspaciosFisiologicos, Traslape, Sobremordida, 
 MordidaAbierta, MordidaProfunda, MalposicionDentaria, Diastema)
