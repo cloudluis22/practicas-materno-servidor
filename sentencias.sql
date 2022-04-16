@@ -54,7 +54,7 @@ UPDATE habitosperniciosos SET IdPaciente = ?, RespiradoBucal = ?, SuccionDigital
 INSERT INTO mediobucalgeneral (IdPaciente, Higiene, PlacaDentobacteriana, 
 Localizacion, CalculoDental) VALUES (?, ?, ?, ?, ?)
 
--- sentencias insert tabla Oclusion y alineamiento
+-- sentencias insert tabla Oclusion y alineamiento .
 INSERT INTO oclusionyalinamiento (IdPaciente, LineaMedia, PlanoTerminal, 
 ClaseMolar, EspaciosPrimates, EspaciosFisiologicos, Traslape, Sobremordida, 
 MordidaAbierta, MordidaProfunda, MalposicionDentaria, Diastema)
