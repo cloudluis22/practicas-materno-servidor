@@ -16,8 +16,7 @@ router
   .get((req, res) => {
     const IdPaciente = req.params.id;
 
-    const peticionSql =
-      'SELECT * FROM tejidosblandos WHERE IdPaciente = ?';
+    const peticionSql = 'SELECT * FROM tejidosblandos WHERE IdPaciente = ?';
 
     db.query(peticionSql, IdPaciente, (err, result) => {
       if (err) {
@@ -81,9 +80,8 @@ router
     const MucosaMasticatoria = req.body.MucosaMasticatoria;
     const Otros = req.body.Otros;
 
-
     const peticionSql =
-      'UPDATE tejidosblandos SET EncargadoCepillado = ?, CepilladosDiarios = ?, MarcaPastaDental = ?, CepilladoDiarioDormir = ?, EnjuagueBucal = ?, HiloDental = ? WHERE IdPaciente = ?';
+      'UPDATE tejidosblandos SET Lengua = ?, FrenilloLingual = ?, Labios = ?, FrenilloLabial = ?, PaladarDuro = ?, PaladarBlando = ?, PisoBoca = ?, MucosaYugal = ?, MucosaMasticatoria = ?, Otros = ? WHERE idPaciente = ?';
     db.query(
       peticionSql,
       [

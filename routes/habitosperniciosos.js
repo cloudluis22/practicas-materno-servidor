@@ -23,7 +23,7 @@ router
         res.status(400).send({ message: err });
         console.error(err);
       } else {
-        res.status(200).send({ mediobucalgeneral: result });
+        res.status(200).send({ habitosperniciosos: result });
       }
     });
   })
@@ -36,10 +36,10 @@ router
     const MorderseLabio = req.body.MorderseLabio;
     const MorderseLasUnas = req.body.MorderseLasUnas;
     const DeglucionAtipica = req.body.DeglucionAtipica;
-    const Otros = req.body.Otros;
+    const LblOtros = req.body.LblOtros;
 
     const peticionSql =
-      'INSERT INTO habitosperniciosos (IdPaciente, RespiradoBucal, SuccionDigital, SuccionChupete, SuccionLabial, MorderseLabio, MorderseLasUnas, DeglucionAtipica, Otros) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';
+      'INSERT INTO habitosperniciosos (IdPaciente, RespiradoBucal, SuccionDigital, SuccionChupete, SuccionLabial, MorderseLabio, MorderseLasUnas, DeglucionAtipica, LblOtros) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';
     db.query(
       peticionSql,
       [
@@ -51,7 +51,7 @@ router
         MorderseLabio,
         MorderseLasUnas,
         DeglucionAtipica,
-        Otros,
+        LblOtros,
       ],
       (err, result) => {
         if (err) {
@@ -72,10 +72,10 @@ router
     const MorderseLabio = req.body.MorderseLabio;
     const MorderseLasUnas = req.body.MorderseLasUnas;
     const DeglucionAtipica = req.body.DeglucionAtipica;
-    const Otros = req.body.Otros;
+    const LblOtros = req.body.LblOtros;
 
     const peticionSql =
-      'UPDATE habitosperniciosos SET  RespiradoBucal = ?, SuccionDigital = ?, SuccionChupete = ?, SuccionLabial = ?, MorderseLabio = ?, MorderseLasUnas = ?, DeglucionAtipica = ?, Otros = ? WHERE IdPaciente = ?';
+      'UPDATE habitosperniciosos SET  RespiradoBucal = ?, SuccionDigital = ?, SuccionChupete = ?, SuccionLabial = ?, MorderseLabio = ?, MorderseLasUnas = ?, DeglucionAtipica = ?, LblOtros = ? WHERE IdPaciente = ?';
     db.query(
       peticionSql,
       [
@@ -86,7 +86,7 @@ router
         MorderseLabio,
         MorderseLasUnas,
         DeglucionAtipica,
-        Otros,
+        LblOtros,
         IdPaciente,
       ],
       (err, result) => {
@@ -94,7 +94,7 @@ router
           res.status(400).send({ message: err });
           console.error(err);
         } else {
-          res.status(200).send({ habitosperniciosos : result });
+          res.status(200).send({ habitosperniciosos: result });
         }
       }
     );

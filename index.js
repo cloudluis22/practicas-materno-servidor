@@ -13,6 +13,7 @@ const erupcionydenticion = require('./routes/erupcionydenticion');
 const oclusionyalinamiento = require('./routes/oclusionyalinamiento');
 const habitoshigiene = require('./routes/habitoshigiene');
 const tejidosblandos = require('./routes/tejidosblandos');
+const habitosperniciosos = require('./routes/habitosperniciosos');
 
 // ----------- MIDDLEWARES ---------------------
 app.use(cors());
@@ -29,9 +30,10 @@ app.use('/api/v1', antecedentesfamiliares);
 app.use('/api/v1', antecedentespersonales);
 app.use('/api/v1', mediobucalgeneral);
 app.use('/api/v1', erupcionydenticion);
-app.use('/api/v1', oclusionyalinamiento)
-app.use('/api/v1', habitoshigiene)
-app.use('/api/v1', tejidosblandos)
+app.use('/api/v1', oclusionyalinamiento);
+app.use('/api/v1', habitoshigiene);
+app.use('/api/v1', tejidosblandos);
+app.use('/api/v1', habitosperniciosos);
 
 // -----------------------------------
 
