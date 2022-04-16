@@ -14,7 +14,7 @@ const db = mysql.createPool({
 router.post('/registrar-paciente', (request, response) => {
   const IdPaciente = request.body.id;
   const NombrePaciente = request.body.NombrePaciente;
-  const NombrePreferido = request.body.NombrePaciente;
+  const NombrePreferido = request.body.NombrePreferido;
   const Edad = request.body.Edad;
   const Genero = request.body.Genero;
   const GustosPersonales = request.body.GustosPersonales;
@@ -118,7 +118,7 @@ router.put('/actualizar-paciente', (request, response) => {
   //a
   const IdPaciente = request.body.id;
   const NombrePaciente = request.body.NombrePaciente;
-  const NombrePreferido = request.body.NombrePaciente;
+  const NombrePreferido = request.body.NombrePreferido;
   const Edad = request.body.Edad;
   const Genero = request.body.Genero;
   const GustosPersonales = request.body.GustosPersonales;
