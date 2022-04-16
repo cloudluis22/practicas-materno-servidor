@@ -12,11 +12,12 @@ const db = mysql.createPool({
 });
 
 router
-  .route('/oclusion-y-alinamiento/:id')
+  .route('/oclusion-y-alineamiento/:id')
   .get((req, res) => {
     const IdPaciente = req.params.id;
 
-    const peticionSql = 'SELECT * FROM oclusionyalinamiento WHERE IdPaciente = ?';
+    const peticionSql =
+      'SELECT * FROM oclusionyalinamiento WHERE IdPaciente = ?';
 
     db.query(peticionSql, IdPaciente, (err, result) => {
       if (err) {
@@ -64,7 +65,7 @@ router
           res.status(400).send({ message: err });
           console.error(err);
         } else {
-          res.status(200).send({ oclusionyalinamiento : result });
+          res.status(200).send({ oclusionyalinamiento: result });
         }
       }
     );
@@ -106,7 +107,7 @@ router
           res.status(400).send({ message: err });
           console.error(err);
         } else {
-          res.status(200).send({ oclusionyalinamiento : result });
+          res.status(200).send({ oclusionyalinamiento: result });
         }
       }
     );
