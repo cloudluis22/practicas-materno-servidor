@@ -65,3 +65,11 @@ INSERT INTO tejidosblandos (idPaciente, Lengua, FrenilloLingual, Labios,
 FrenilloLabial, PaladarDuro, PaladarBlando, PisoBoca, MucosaYugal,
  MucosaMasticatoria, Otros) 
  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+
+
+
+ -- extras insert tabla
+ UPDATE tejidosblandos SET Lengua = ?, FrenilloLingual = ?, Labios = ?, FrenilloLabial = ?, PaladarDuro = ?, PaladarBlando = ?, PisoBoca = ?, MucosaYugal = ?, MucosaMasticatoria = ?, Otros = ? WHERE idPaciente = ?
+
+
+ INSERT INTO habitoshigiene (IdPaciente, EncargadoCepillado, CepilladosDiarios, MarcaPastaDental, CepilladoDiarioDormir, EnjuagueBucal, HiloDental) VALUES (?, ?, ?, ?, ?, ?, ?);

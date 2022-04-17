@@ -65,7 +65,7 @@ router
           res.status(400).send({ message: err });
           console.error(err);
         } else {
-          res.status(200).send({ oclusionyalinamiento: result });
+          res.status(200).send({ oclusionyalineamiento: result });
         }
       }
     );
@@ -85,7 +85,7 @@ router
     const Diastema = req.body.Diastema;
 
     const peticionSql =
-      'UPDATE oclusionyalinamiento SET LineaMedia = ?, PlanoTerminal = ?, ClaseMolar = ?, EspaciosPrimates = ?, EspaciosFisiologicos = ?, Traslape = ?, Sobremordida = ?, MordidaAbierta = ?, MordidaProfunda = ?, MalposicionDentaria = ?, Diastema = ? WHERE IdPaciente = ?';
+      'UPDATE oclusionyalineamiento SET LineaMedia = ?, PlanoTerminal = ?, ClaseMolar = ?, EspaciosPrimates = ?, EspaciosFisiologicos = ?, Traslape = ?, Sobremordida = ?, MordidaAbierta = ?, MordidaProfunda = ?, MalposicionDentaria = ?, Diastema = ? WHERE IdPaciente = ?';
     db.query(
       peticionSql,
       [
@@ -107,7 +107,7 @@ router
           res.status(400).send({ message: err });
           console.error(err);
         } else {
-          res.status(200).send({ oclusionyalinamiento: result });
+          res.status(200).send({ oclusionyalineamiento: result });
         }
       }
     );
