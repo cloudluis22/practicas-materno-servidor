@@ -12,7 +12,7 @@ const db = mysql.createPool({
 });
 
 router
-  .route('/antecedentespersonales/:id')
+  .route('/antecedentes-personales/:id')
   .get((req, res) => {
     const IdPaciente = req.params.id;
 
@@ -69,10 +69,11 @@ router
     const LblDificultadNacimiento = req.body.LblDificultadNacimiento;
     const LblAnomaliaCongenitaNacimiento = req.body.LblAnomaliaCongenitaNacimiento;
     const HaSidoAnestesiado = req.body.HaSidoAnestesiado;
+    const ReaccionAnestesia = req.body.ReaccionAnestesia;
     const LblReaccionAnestesia = req.body.LblReaccionAnestesia;
 
     const peticionSql =
-      'INSERT INTO antecedentespersonales (IdPaciente, BuenaSalud, Hospitalizado, RealizaDeporte, AlergiasMedAlim, TrastornoMentalEmocional, DificultadesEscolares, RespiraPorBoca, ApneaRoncar, ChupaLabioDedos, Asma, Sarampion, FiebreReumatica, PaladarHendido, TosFerina, Poliomelitis, Epilepsia, Escarlatina, Tuberculosis, EnfermedadCardiaca, Varicela, Paperas, Hepatitis, Difteria, Tifoidea, EnfermedadRenal, Hemofilia, TrastornoHepatico, Diabetes, Reflujo, TrastornoDeLenguaje, Otros, TratamientosActivos, TomaMedicamentos, MadreMedicamentoEmbarazo, AccidentesEmbarazo, TipoParto, DificultadNacimiento, AnomaliaCongenitaNacimiento, HaSidoAnesteciado, ReaccionAnestecia) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+      'INSERT INTO antecedentespersonales (IdPaciente, BuenaSalud, Hospitalizado, RealizaDeporte, AlergiasMedAlim, TrastornoMentalEmocional, DificultadesEscolares, RespiraPorBoca, ApneaRoncar, ChupaLabioDedos, Asma, Sarampion, FiebreReumatica, PaladarHendido, TosFerina, Poliomelitis, Epilepsia, Escarlatina, Tuberculosis, EnfermedadCardiaca, Varicela, Paperas, Hepatitis, Difteria, Tifoidea, EnfermedadRenal, Hemofilia, TrastornoHepatico, Diabetes, Reflujo, TrastornoDeLenguaje, Otros, TratamientosActivos, TomaMedicamentos, MadreMedicamentoEmbarazo, AccidentesEmbarazo, TipoParto, DificultadNacimiento, AnomaliaCongenitaNacimiento, HaSidoAnestesiado, ReaccionAnestesia, LbLReaccionAnestesia) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
     db.query(
       peticionSql,
       [
@@ -117,6 +118,7 @@ router
         LblDificultadNacimiento,
         LblAnomaliaCongenitaNacimiento,
         HaSidoAnestesiado,
+        ReaccionAnestesia,
         LblReaccionAnestesia,
       ],
       (err, result) => {
@@ -178,15 +180,14 @@ router
     const AnomaliaCongenitaNacimiento = req.body.AnomaliaCongenitaNacimiento;
     const LblAnomaliaCongenitaNacimiento = req.body.LblAnomaliaCongenitaNacimiento;
     const HaSidoAnestesiado = req.body.HaSidoAnestesiado;
-    const ReaccionAnestecia = req.body.ReaccionAnestecia;
+    const ReaccionAnestesia = req.body.ReaccionAnestesia;
     const LblReaccionAnestesia = req.body.LblReaccionAnestesia;
 
     const peticionSql =
-      'UPDATE antecedentespersonales SET IdPaciente = ?, BuenaSalud = ?, Hospitalizado = ?, RealizaDeporte = ?, AlergiasMedAlim = ?, TrastornoMentalEmocional = ?, DificultadesEscolares = ?, RespiraPorBoca = ?, ApneaRoncar = ?, ChupaLabioDedos = ?, Asma = ?, Sarampion = ?, FiebreReumatica = ?, PaladarHendido = ?, TosFerina = ?, Poliomelitis = ?, Epilepsia = ?, Escarlatina = ?, Tuberculosis = ?, EnfermedadCardiaca = ?, Varicela = ?, Paperas = ?, Hepatitis = ?, Difteria = ?, Tifoidea = ?, EnfermedadRenal = ?, Hemofilia = ?, TrastornoHepatico = ?, Diabetes = ?, Reflujo = ?, TrastornoDeLenguaje = ?, Otros = ?, TratamientosActivos = ?, TomaMedicamentos = ?, MadreMedicamentoEmbarazo = ?, AccidentesEmbarazo = ?, TipoParto = ?, DificultadNacimiento = ?, AnomaliaCongenitaNacimiento = ?, HaSidoAnesteciado = ?, ReaccionAnestecia = ? WHERE IdPaciente = ?';
+      'UPDATE antecedentespersonales SET BuenaSalud = ?, Hospitalizado = ?, RealizaDeporte = ?, AlergiasMedAlim = ?, TrastornoMentalEmocional = ?, DificultadesEscolares = ?, RespiraPorBoca = ?, ApneaRoncar = ?, ChupaLabioDedos = ?, Asma = ?, Sarampion = ?, FiebreReumatica = ?, PaladarHendido = ?, TosFerina = ?, Poliomelitis = ?, Epilepsia = ?, Escarlatina = ?, Tuberculosis = ?, EnfermedadCardiaca = ?, Varicela = ?, Paperas = ?, Hepatitis = ?, Difteria = ?, Tifoidea = ?, EnfermedadRenal = ?, Hemofilia = ?, TrastornoHepatico = ?, Diabetes = ?, Reflujo = ?, TrastornoDeLenguaje = ?, Otros = ?, TratamientosActivos = ?, TomaMedicamentos = ?, MadreMedicamentoEmbarazo = ?, AccidentesEmbarazo = ?, TipoParto = ?, DificultadNacimiento = ?, AnomaliaCongenitaNacimiento = ?, HaSidoAnestesiado = ?, ReaccionAnestesia = ?, LblReaccionAnestesia = ? WHERE IdPaciente = ?';
     db.query(
       peticionSql,
       [
-        IdPaciente, 
         BuenaSalud, 
         Hospitalizado, 
         RealizaDeporte, 
@@ -232,9 +233,10 @@ router
         LblDificultadNacimiento, 
         AnomaliaCongenitaNacimiento, 
         LblAnomaliaCongenitaNacimiento, 
-        HaSidoAnesteciado, 
-        ReaccionAnestecia, 
-        LblReaccionAnestesia
+        HaSidoAnestesiado, 
+        ReaccionAnestesia, 
+        LblReaccionAnestesia,
+        IdPaciente, 
       ],
       (err, result) => {
         if (err) {

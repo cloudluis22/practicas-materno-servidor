@@ -12,18 +12,18 @@ const db = mysql.createPool({
 });
 
 router
-  .route('/oclusion-y-alinamiento/:id')
+  .route('/oclusion-y-alineamiento/:id')
   .get((req, res) => {
     const IdPaciente = req.params.id;
 
-    const peticionSql = 'SELECT * FROM oclusionyalinamiento WHERE IdPaciente = ?';
+    const peticionSql = 'SELECT * FROM oclusionyalineamiento WHERE IdPaciente = ?';
 
     db.query(peticionSql, IdPaciente, (err, result) => {
       if (err) {
         res.status(400).send({ message: err });
         console.error(err);
       } else {
-        res.status(200).send({ oclusionyalinamiento: result });
+        res.status(200).send({ oclusionyalineamiento: result });
       }
     });
   })
@@ -42,7 +42,7 @@ router
     const Diastema = req.body.Diastema;
 
     const peticionSql =
-      'INSERT INTO oclusionyalinamiento (IdPaciente, LineaMedia, PlanoTerminal, ClaseMolar, EspaciosPrimates, EspaciosFisiologicos, Traslape, Sobremordida, MordidaAbierta, MordidaProfunda, MalposicionDentaria, Diastema) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+      'INSERT INTO oclusionyalineamiento (IdPaciente, LineaMedia, PlanoTerminal, ClaseMolar, EspaciosPrimates, EspaciosFisiologicos, Traslape, Sobremordida, MordidaAbierta, MordidaProfunda, MalposicionDentaria, Diastema) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
     db.query(
       peticionSql,
       [
@@ -64,7 +64,7 @@ router
           res.status(400).send({ message: err });
           console.error(err);
         } else {
-          res.status(200).send({ oclusionyalinamiento : result });
+          res.status(200).send({ oclusionyalineamiento : result });
         }
       }
     );
@@ -84,7 +84,7 @@ router
     const Diastema = req.body.Diastema;
 
     const peticionSql =
-      'UPDATE oclusionyalinamiento SET LineaMedia = ?, PlanoTerminal = ?, ClaseMolar = ?, EspaciosPrimates = ?, EspaciosFisiologicos = ?, Traslape = ?, Sobremordida = ?, MordidaAbierta = ?, MordidaProfunda = ?, MalposicionDentaria = ?, Diastema = ? WHERE IdPaciente = ?';
+      'UPDATE oclusionyalineamiento SET LineaMedia = ?, PlanoTerminal = ?, ClaseMolar = ?, EspaciosPrimates = ?, EspaciosFisiologicos = ?, Traslape = ?, Sobremordida = ?, MordidaAbierta = ?, MordidaProfunda = ?, MalposicionDentaria = ?, Diastema = ? WHERE IdPaciente = ?';
     db.query(
       peticionSql,
       [
@@ -106,7 +106,7 @@ router
           res.status(400).send({ message: err });
           console.error(err);
         } else {
-          res.status(200).send({ oclusionyalinamiento : result });
+          res.status(200).send({ oclusionyalineamiento : result });
         }
       }
     );

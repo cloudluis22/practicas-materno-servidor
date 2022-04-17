@@ -10,7 +10,7 @@ const antecedentesfamiliares = require('./routes/antecedentesfamiliares');
 const antecedentespersonales = require('./routes/antecedentespersonales');
 const mediobucalgeneral = require('./routes/mediobucalgeneral');
 const erupcionydenticion = require('./routes/erupcionydenticion');
-const oclusionyalinamiento = require('./routes/oclusionyalinamiento');
+const oclusionyalineamiento = require('./routes/oclusionyalineamiento');
 const habitoshigiene = require('./routes/habitoshigiene');
 const tejidosblandos = require('./routes/tejidosblandos');
 
@@ -29,7 +29,7 @@ app.use('/api/v1', antecedentesfamiliares);
 app.use('/api/v1', antecedentespersonales);
 app.use('/api/v1', mediobucalgeneral);
 app.use('/api/v1', erupcionydenticion);
-app.use('/api/v1', oclusionyalinamiento)
+app.use('/api/v1', oclusionyalineamiento)
 app.use('/api/v1', habitoshigiene)
 app.use('/api/v1', tejidosblandos)
 
