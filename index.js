@@ -33,6 +33,7 @@ app.use('/api/v1', erupcionydenticion);
 app.use('/api/v1', oclusionyalineamiento);
 app.use('/api/v1', habitoshigiene);
 app.use('/api/v1', tejidosblandos);
+app.use('/api/v1', habitosperniciosos);
 
 // -----------------------------------
 
