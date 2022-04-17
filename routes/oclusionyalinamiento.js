@@ -17,14 +17,14 @@ router
     const IdPaciente = req.params.id;
 
     const peticionSql =
-      'SELECT * FROM oclusionyalinamiento WHERE IdPaciente = ?';
+      'SELECT * FROM oclusionyalineamiento WHERE IdPaciente = ?';
 
     db.query(peticionSql, IdPaciente, (err, result) => {
       if (err) {
         res.status(400).send({ message: err });
         console.error(err);
       } else {
-        res.status(200).send({ oclusionyalinamiento: result });
+        res.status(200).send({ oclusionyalineamiento: result });
       }
     });
   })
@@ -43,7 +43,7 @@ router
     const Diastema = req.body.Diastema;
 
     const peticionSql =
-      'INSERT INTO oclusionyalinamiento (IdPaciente, LineaMedia, PlanoTerminal, ClaseMolar, EspaciosPrimates, EspaciosFisiologicos, Traslape, Sobremordida, MordidaAbierta, MordidaProfunda, MalposicionDentaria, Diastema) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+      'INSERT INTO oclusionyalineamiento (IdPaciente, LineaMedia, PlanoTerminal, ClaseMolar, EspaciosPrimates, EspaciosFisiologicos, Traslape, Sobremordida, MordidaAbierta, MordidaProfunda, MalposicionDentaria, Diastema) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
     db.query(
       peticionSql,
       [
