@@ -23,7 +23,7 @@ router
         res.status(400).send({ message: err });
         console.error(err);
       } else {
-        res.status(200).send({ mediobucalgeneral: result });
+        res.status(200).send({ habitosperniciosos: result });
       }
     });
   })
