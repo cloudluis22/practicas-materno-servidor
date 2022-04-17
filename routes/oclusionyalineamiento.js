@@ -16,7 +16,8 @@ router
   .get((req, res) => {
     const IdPaciente = req.params.id;
 
-    const peticionSql = 'SELECT * FROM oclusionyalineamiento WHERE IdPaciente = ?';
+    const peticionSql =
+      'SELECT * FROM oclusionyalineamiento WHERE IdPaciente = ?';
 
     db.query(peticionSql, IdPaciente, (err, result) => {
       if (err) {
@@ -64,7 +65,7 @@ router
           res.status(400).send({ message: err });
           console.error(err);
         } else {
-          res.status(200).send({ oclusionyalineamiento : result });
+          res.status(200).send({ oclusionyalineamiento: result });
         }
       }
     );
@@ -106,7 +107,7 @@ router
           res.status(400).send({ message: err });
           console.error(err);
         } else {
-          res.status(200).send({ oclusionyalineamiento : result });
+          res.status(200).send({ oclusionyalineamiento: result });
         }
       }
     );

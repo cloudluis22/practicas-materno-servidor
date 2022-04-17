@@ -30,10 +30,16 @@ app.use('/api/v1', antecedentesfamiliares);
 app.use('/api/v1', antecedentespersonales);
 app.use('/api/v1', mediobucalgeneral);
 app.use('/api/v1', erupcionydenticion);
+<<<<<<< HEAD
 app.use('/api/v1', oclusionyalineamiento)
 app.use('/api/v1', habitoshigiene)
 app.use('/api/v1', tejidosblandos)
 app.use('/api/v1', habitosperniciosos)
+=======
+app.use('/api/v1', oclusionyalineamiento);
+app.use('/api/v1', habitoshigiene);
+app.use('/api/v1', tejidosblandos);
+>>>>>>> abb16d2135539d39911f39a3f72688c31dacd6d9
 
 // -----------------------------------
 

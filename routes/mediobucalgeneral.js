@@ -66,7 +66,7 @@ router
     const CalculoDental = req.body.CalculoDental;
 
     const peticionSql =
-      'UPDATE mediobucalgeneral SET IdPaciente = ?, Higiene = ?, PlacaDentobacteriana = ?, PHSaliva = ?, Localizacion = ?, CalculoDental = ? WHERE IdPaciente = ?';
+      'UPDATE mediobucalgeneral SET Higiene = ?, PlacaDentobacteriana = ?, PHSaliva = ?, Localizacion = ?, CalculoDental = ? WHERE IdPaciente = ?';
     db.query(
       peticionSql,
       [

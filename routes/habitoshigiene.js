@@ -16,8 +16,7 @@ router
   .get((req, res) => {
     const IdPaciente = req.params.id;
 
-    const peticionSql =
-      'SELECT * FROM habitoshigiene WHERE IdPaciente = ?';
+    const peticionSql = 'SELECT * FROM habitoshigiene WHERE IdPaciente = ?';
 
     db.query(peticionSql, IdPaciente, (err, result) => {
       if (err) {
@@ -31,7 +30,7 @@ router
   .post((req, res) => {
     const IdPaciente = req.params.id;
     const EncargadoCepillado = req.body.EncargadoCepillado;
-    const CepilladosDiaros = req.body.CepilladosDiaros;
+    const CepilladosDiarios = req.body.CepilladosDiarios;
     const MarcaPastaDental = req.body.MarcaPastaDental;
     const CepilladoDiarioDormir = req.body.CepilladoDiarioDormir;
     const EnjuagueBucal = req.body.EnjuagueBucal;
@@ -44,7 +43,7 @@ router
       [
         IdPaciente,
         EncargadoCepillado,
-        CepilladosDiaros,
+        CepilladosDiarios,
         MarcaPastaDental,
         CepilladoDiarioDormir,
         EnjuagueBucal,
@@ -63,7 +62,7 @@ router
   .put((req, res) => {
     const IdPaciente = req.params.id;
     const EncargadoCepillado = req.body.EncargadoCepillado;
-    const CepilladosDiaros = req.body.CepilladosDiaros;
+    const CepilladosDiarios = req.body.CepilladosDiarios;
     const MarcaPastaDental = req.body.MarcaPastaDental;
     const CepilladoDiarioDormir = req.body.CepilladoDiarioDormir;
     const EnjuagueBucal = req.body.EnjuagueBucal;
@@ -75,7 +74,7 @@ router
       peticionSql,
       [
         EncargadoCepillado,
-        CepilladosDiaros,
+        CepilladosDiarios,
         MarcaPastaDental,
         CepilladoDiarioDormir,
         EnjuagueBucal,
