@@ -73,3 +73,14 @@ FrenilloLabial, PaladarDuro, PaladarBlando, PisoBoca, MucosaYugal,
 
 
  INSERT INTO habitoshigiene (IdPaciente, EncargadoCepillado, CepilladosDiarios, MarcaPastaDental, CepilladoDiarioDormir, EnjuagueBucal, HiloDental) VALUES (?, ?, ?, ?, ?, ?, ?);
+
+UPDATE antecedentespersonales SET BuenaSalud = ?, Hospitalizado = ?, RealizaDeporte = ?, LblRealizaDeporte = ?, 
+AlergiasMedAlim = ?, LblAlergiasMedAlim = ?, TrastornoMentalEmocional = ?, LblTrastornoMentalEmocional = ?, DificultadesEscolares = ?, 
+RespiraPorBoca = ?, ApneaRoncar = ?, ChupaLabioDedos = ?, LblChupaLabioDedos = ?, Asma = ?, Sarampion = ?, FiebreReumatica = ?, 
+PaladarHendido = ?, TosFerina = ?, Poliomelitis = ?, Epilepsia = ?, Escarlatina = ?, Tuberculosis = ?, EnfermedadCardiaca = ?, 
+Varicela = ?, Paperas = ?, Hepatitis = ?, Difteria = ?, Tifoidea = ?, EnfermedadRenal = ?, Hemofilia = ?, TrastornoHepatico = ?, 
+Diabetes = ?, Reflujo = ?, TrastornoDeLenguaje = ?, Otros = ?, TratamientosActivos = ?, TomaMedicamentos = ?, LblTomaMedicamentos = ?, 
+MadreMedicamentoEmbarazo = ?, LblMadreMedicamentoEmbarazo = ?, AccidentesEmbarazo = ?, TipoParto = ?, DificultadNacimiento = ?, 
+LblDificultadNacimiento = ?, AnomaliaCongenitaNacimiento = ?, LblAnomaliaCongenitaNacimiento = ?, HaSidoAnestesiado = ?, ReaccionAnestesia = ?, 
+LblReaccionAnestesia = ? WHERE antecedentespersonales.IdPaciente = ?;
+
