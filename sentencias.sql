@@ -84,3 +84,5 @@ MadreMedicamentoEmbarazo = ?, LblMadreMedicamentoEmbarazo = ?, AccidentesEmbaraz
 LblDificultadNacimiento = ?, AnomaliaCongenitaNacimiento = ?, LblAnomaliaCongenitaNacimiento = ?, HaSidoAnestesiado = ?, ReaccionAnestesia = ?, 
 LblReaccionAnestesia = ? WHERE antecedentespersonales.IdPaciente = ?;
 
+
+UPDATE paciente SET NombrePaciente = ?, NombrePreferido = ?, Edad = ?, Genero = ?, GustosPersonales = ?, FechaDeNacimiento = ?, LugarDeNacimiento = ?, PadreMadreTutor = ?, TutorEncargado = ?, Domicilio = ?, Telefono = ?, Celular = ?, OtroContacto = ?, Mydate = ?, NombrePediatra = ? WHERE IdPaciente = ?;
