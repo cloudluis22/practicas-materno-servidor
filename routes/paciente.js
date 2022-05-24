@@ -78,7 +78,7 @@ router.get('/obtener-pacientes', (req, res) => {
 router.get('/obtener-paciente/:id', (req, res) => {
   const IdPaciente = req.params.id;
   const peticionSql =
-    'SELECT IdPaciente, NombrePaciente FROM paciente WHERE IdPaciente = ? ';
+    'SELECT IdPaciente, NombrePaciente, TutorEncargado FROM paciente WHERE IdPaciente = ? ';
 
   db.query(peticionSql, IdPaciente, (err, result) => {
     if (err) {
