@@ -26,10 +26,11 @@ router.post('/registrar-paciente', (request, response) => {
   const Telefono = request.body.Telefono;
   const Celular = request.body.Celular;
   const OtroContacto = request.body.OtroContacto;
+  const NombrePediatra = request.body.NombrePediatra;
   const Mydate = request.body.Mydate;
 
   const peticionSql =
-    'INSERT INTO paciente (IdPaciente, NombrePaciente, NombrePreferido, Edad, Genero, GustosPersonales, FechaDeNacimiento, LugarDeNacimiento, PadreMadreTutor, TutorEncargado, Domicilio, Telefono, Celular, OtroContacto, Mydate) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+    'INSERT INTO paciente (IdPaciente, NombrePaciente, NombrePreferido, Edad, Genero, GustosPersonales, FechaDeNacimiento, LugarDeNacimiento, PadreMadreTutor, TutorEncargado, Domicilio, Telefono, Celular, OtroContacto, Mydate, NombrePediatra) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
   db.query(
     peticionSql,
     [
@@ -48,6 +49,7 @@ router.post('/registrar-paciente', (request, response) => {
       Celular,
       OtroContacto,
       Mydate,
+      NombrePediatra,
     ],
     (err, result) => {
       if (err) {
@@ -76,7 +78,7 @@ router.get('/obtener-pacientes', (req, res) => {
 router.get('/obtener-paciente/:id', (req, res) => {
   const IdPaciente = req.params.id;
   const peticionSql =
-    'SELECT IdPaciente, NombrePaciente FROM paciente WHERE IdPaciente = ? ';
+    'SELECT IdPaciente, NombrePaciente, TutorEncargado FROM paciente WHERE IdPaciente = ? ';
 
   db.query(peticionSql, IdPaciente, (err, result) => {
     if (err) {
@@ -130,9 +132,10 @@ router.put('/actualizar-paciente', (request, response) => {
   const Telefono = request.body.Telefono;
   const Celular = request.body.Celular;
   const OtroContacto = request.body.OtroContacto;
+  const NombrePediatra = request.body.NombrePediatra;
 
   const peticionSql =
-    'UPDATE paciente SET NombrePaciente = ?, NombrePreferido = ?, Edad = ?, Genero = ?, GustosPersonales = ?, FechaDeNacimiento = ?, LugarDeNacimiento = ?, PadreMadreTutor = ?, TutorEncargado = ?, Domicilio = ?, Telefono = ?, Celular = ?, OtroContacto = ? WHERE IdPaciente = ?';
+    'UPDATE paciente SET NombrePaciente = ?, NombrePreferido = ?, Edad = ?, Genero = ?, GustosPersonales = ?, FechaDeNacimiento = ?, LugarDeNacimiento = ?, PadreMadreTutor = ?, TutorEncargado = ?, Domicilio = ?, Telefono = ?, Celular = ?, OtroContacto = ?, NombrePediatra = ? WHERE IdPaciente = ?;';
   db.query(
     peticionSql,
     [
@@ -149,6 +152,7 @@ router.put('/actualizar-paciente', (request, response) => {
       Telefono,
       Celular,
       OtroContacto,
+      NombrePediatra,
       IdPaciente,
     ],
     (err, result) => {

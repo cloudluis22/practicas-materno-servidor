@@ -27,6 +27,7 @@ router
         res.status(200).send({ antecedentesfamiliares: result });
       }
     });
+
   })
   .post((req, res) => {
     const IdPaciente = req.params.id;
