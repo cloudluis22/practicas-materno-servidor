@@ -16,6 +16,7 @@ const habitoshigiene = require('./routes/habitoshigiene');
 const tejidosblandos = require('./routes/tejidosblandos');
 const habitosperniciosos = require('./routes/habitosperniciosos');
 const consultas = require('./routes/consultas');
+const tratamientodental = require('./routes/tratamientodental');
 
 // ----------- MIDDLEWARES ---------------------
 app.use(cors());
@@ -37,6 +38,7 @@ app.use('/api/v1', habitoshigiene);
 app.use('/api/v1', tejidosblandos);
 app.use('/api/v1', habitosperniciosos);
 app.use('/api/v1', consultas);
+app.use('/api/v1', tratamientodental);
 
 // -----------------------------------
 
