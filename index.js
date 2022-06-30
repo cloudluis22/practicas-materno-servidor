@@ -3,6 +3,9 @@ const app = express();
 const cors = require('cors');
 require('dotenv').config();
 
+
+const port = process.env.PORT || 3001;
+
 // Rutas
 const paciente = require('./routes/paciente');
 const alimentacion = require('./routes/alimentacion');
@@ -42,8 +45,8 @@ app.use('/api/v1', tratamientodental);
 
 // -----------------------------------
 
-app.listen('3001', () => {
-  console.log('Corriendo en el puerto 3001');
+app.listen(port, () => {
+  console.log(`Corriendo en el puerto ${port} correctamente.`);
   console.log(process.env.DB_HOST);
   console.log(process.env.DB_USER);
   console.log(process.env.DB_PASSWORD);
